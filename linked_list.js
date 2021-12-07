@@ -274,14 +274,33 @@ class DoublyLinkedList {
     }
     return currentNode;
   }
+   reverse() {
+      if (!this.head.next) {
+        return this.head;
+      }
+      let first = this.head;
+      this.tail = this.head;
+      let second = first.next;
+  
+      while(second) {
+        const temp = second.next;
+        second.next = first;
+        first = second;
+        second = temp;
+      }
+  
+      this.head.next = null;
+      this.head = first;
+      return this.printList();
+    }
 }
 
-let myLinkedList = new DoublyLinkedList(10);
-myLinkedList.append(5)
-myLinkedList.append(16)
-myLinkedList.prepend(1)
-myLinkedList.insert(2, 99)
-// myLinkedList.insert(20, 88)
-// myLinkedList.printList()
-// myLinkedList.remove(2)
-// myLinkedList.reverse()
+let myDoublyLinkedList = new DoublyLinkedList(10);
+myDoublyLinkedList.append(5)
+myDoublyLinkedList.append(16)
+myDoublyLinkedList.prepend(1)
+myDoublyLinkedList.insert(2, 99)
+myDoublyLinkedList.insert(20, 88)
+myDoublyLinkedList.printList()
+myDoublyLinkedList.remove(2)
+myDoublyLinkedList.reverse()
