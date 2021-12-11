@@ -46,7 +46,11 @@ function insertionSort(array) {
   const length = array.length;
 	for (let i = 0; i < length; i++) {
 		if (array[i] < array[0]) {
-      //move number to the first position
+      //move number to the first position:
+      //numArray3 is modified but a "splice" method by removing an element from its previous position.
+      //While removing a single element and not inserting anything else during the splice method (array.splice(i,1)) the method returns 
+      //a new array with a single removed element, so we can access it at a 0 index there and add in the very beginning of
+      //the main modified array due to an "unshift" method. Same happens in the second block of this "if-else" check
       array.unshift(array.splice(i,1)[0]);
     } else {
       // only sort number smaller than number on the left of it. This is the part of insertion sort that makes it fast if the array is almost sorted.
