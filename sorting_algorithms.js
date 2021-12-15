@@ -59,7 +59,7 @@ function insertionSort(array) {
         for (var j = 1; j < i; j++) {
           if (array[i] >= array[j-1] && array[i] < array[j]) {
             //move number to the right spot
-            array.splice(j,0,array.splice(i,1)[0]);
+            array.splice(j,0,array.splice(i,1)[0]);		  
           }
         }
       }
@@ -107,6 +107,9 @@ function merge(left, right){
   }  
   // console.log(left, right)
   return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+  //For instance, in case of merge([5, 6], [2, 4])
+  //After the while loop: result = [2, 4], leftIndex = 0, rightIndex = 2
+  //final concatinated result will be: [2, 4] + [5 ,6] + [] = [2, 4, 5, 6]
 }
 
 mergeSort(numArray4);
